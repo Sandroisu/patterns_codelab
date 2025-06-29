@@ -27,12 +27,13 @@ class DocumentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final (title, :modified) = document.metadata;
     final blocks = document.getBlocks();
+    final formattedModifiedDate = document.formatDate(modified);
 
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: Column(
         children: [
-          Text('Last modified: $modified'),
+          Text('Last modified: $formattedModifiedDate'),
           Expanded(
             child: ListView.builder(
               itemCount: blocks.length,
